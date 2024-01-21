@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlogPosting.Posting.Domain\BlogPosting.Posting.Domain.csproj" />
+    <ProjectReference Include="..\BlogPosting.Posting.Infrastructure\BlogPosting.Posting.Infrastructure.csproj" />
+    <ProjectReference Include="..\BlogPosting.Posting.Utilities\BlogPosting.Posting.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
