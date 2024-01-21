@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogPosting.Posting.Infrastructure.Models
@@ -9,6 +11,8 @@ namespace BlogPosting.Posting.Infrastructure.Models
         [Key]        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long PostingId { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.String)]
         public Guid Id { get; set; } = Guid.NewGuid();
         //[ForeignKey("User")]
         public required string UserId { get; init; }

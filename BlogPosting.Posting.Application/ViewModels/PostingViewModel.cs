@@ -2,6 +2,7 @@
 {
     public class PostingViewModel
     {
+        public Guid Id { get; set; }
         public required string UserId { get; init; }
         public required string Title { get; set; }
         public required string Content { get; set; }

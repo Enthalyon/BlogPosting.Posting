@@ -23,7 +23,7 @@ namespace BlogPosting.Posting.Application.Services
                 throw new Exception("Error al crear el post");
             }
 
-            PublishPost createdPost = await _sqlRepository.FindByIdAsync(publishPost.Id);
+            PublishPost createdPost = await _sqlRepository.FindAsync(postin => postin.Id == publishPost.Id);
 
             await _mongoRepository.SavePostAsync(publishPost);
 

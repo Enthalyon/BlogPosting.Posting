@@ -3,7 +3,7 @@
     public class PublishPost
     {
         public required string UserId { get; init; }
-        public long? postId { get; set; }
+        public long PostingId { get; set; }
         public Guid Id { get; set; }= Guid.NewGuid();
         public required string Title { get; set; }
         public required string Content { get; set; }

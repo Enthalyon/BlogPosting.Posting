@@ -4,6 +4,7 @@ using BlogPosting.Posting.Infrastructure.Models;
 using BlogPosting.Posting.Utilities.Statics.Enums;
 using Mapster;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 
 namespace BlogPosting.Posting.Infrastructure.Repository
 {
@@ -36,10 +37,10 @@ namespace BlogPosting.Posting.Infrastructure.Repository
             }
         }
 
-        public async Task<PublishPost> FindByIdAsync(Guid postGuid)
+        public async Task<PublishPost> FindAsync(Expression<Func<PublishPostModel, bool>> expression)
         {
             var result = await _mongoCollection
-                .Find(posting => posting.Id == postGuid)
+                .Find(expression)
                 .FirstOrDefaultAsync();
 
             return result.Adapt<PublishPost>();

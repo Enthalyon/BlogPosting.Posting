@@ -5,6 +5,7 @@ using BlogPosting.Posting.Infrastructure.Models;
 using BlogPosting.Posting.Utilities.Statics.Enums;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace BlogPosting.Posting.Infrastructure.Repository
 {
@@ -29,11 +30,12 @@ namespace BlogPosting.Posting.Infrastructure.Repository
             return result > 0;
         }
 
-        public async Task<PublishPost> FindByIdAsync(Guid postGuid)
+        public async Task<PublishPost> FindAsync(Expression<Func<PublishPostModel, bool>> expression)
         {
             PublishPostModel? result = await _context
-                .Posting.FirstOrDefaultAsync(Posting => Posting.Id == postGuid);
-            return result.Adapt<PublishPost>();
+                .Posting.FirstOrDefaultAsync(expression);
+
+            return result.Adapt<PublishPost>(); 
         }
     }
 }
